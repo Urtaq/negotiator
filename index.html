@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Negotiator by federomero</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Negotiator</h1>
+        <p class="header">An HTTP content negotiator for node.js written in javascript.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/federomero/negotiator/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/federomero/negotiator/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/federomero/negotiator">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/federomero">federomero</a></p>
+
+
+      </header>
+      <section>
+        <h1>Negotiator</h1>
+
+<p>An HTTP content negotiator for node.js written in javascript.</p>
+
+<h1>Accept Negotiation</h1>
+
+<pre><code>Negotiator = require('negotiator')
+
+availableMediaTypes = ['text/html', 'text/plain', 'application/json']
+
+// The negotiator constructor receives a request object
+negotiator = new Negotiator(request)
+
+// Let's say Accept header is 'text/html, application/*;q=0.2, image/jpeg';q=0.8
+
+negotiator.preferredMediaTypes()
+// -&gt; ['text/html', 'application/*', 'image/jpeg']
+
+negotiator.preferredMediaTypes(availableMediaTypes)
+// -&gt; ['text/html', 'application.json']
+
+negotiator.preferredLanguage(availableMediaTypes)
+// -&gt; 'text/html'
+</code></pre>
+
+<p>You can check a working example at <code>examples/accept.js</code>.</p>
+
+<h2>Methods</h2>
+
+<p><code>preferredMediaTypes(availableMediaTypes)</code>:</p>
+
+<p>Returns an array of preferred media types ordered by priority from a list of available media types.</p>
+
+<p><code>preferredMediaType(availableMediaType)</code>:</p>
+
+<p>Returns the top preferred media type from a list of available media types.</p>
+
+<h1>Accept-Language Negotiation</h1>
+
+<pre><code>Negotiator = require('negotiator')
+
+negotiator = new Negotiator(request)
+
+availableLanguages = 'en', 'es', 'fr'
+
+// Let's say Accept-Language header is 'en;q=0.8, es, pt'
+
+negotiator.preferredLanguages()
+// -&gt; ['es', 'pt', 'en']
+
+negotiator.preferredLanguages(availableLanguages)
+// -&gt; ['es', 'en']
+
+language = negotiator.preferredLanguage(availableLanguages)
+// -&gt; 'es'
+</code></pre>
+
+<p>You can check a working example at <code>examples/language.js</code>.</p>
+
+<h2>Methods</h2>
+
+<p><code>preferredLanguages(availableLanguages)</code>:</p>
+
+<p>Returns an array of preferred languages ordered by priority from a list of available languages.</p>
+
+<p><code>preferredLanguage(availableLanguages)</code>:</p>
+
+<p>Returns the top preferred language from a list of available languages.</p>
+
+<h1>Accept-Charset Negotiation</h1>
+
+<pre><code>Negotiator = require('negotiator')
+
+availableCharsets = ['utf-8', 'iso-8859-1', 'iso-8859-5']
+
+negotiator = new Negotiator(request)
+
+// Let's say Accept-Charset header is 'utf-8, iso-8859-1;q=0.8, utf-7;q=0.2'
+
+negotiator.preferredCharsets()
+// -&gt; ['utf-8', 'iso-8859-1', 'utf-7']
+
+negotiator.preferredCharsets(availableCharsets)
+// -&gt; ['utf-8', 'iso-8859-1']
+
+negotiator.preferredCharset(availableCharsets)
+// -&gt; 'utf-8'
+</code></pre>
+
+<p>You can check a working example at <code>examples/charset.js</code>.</p>
+
+<h2>Methods</h2>
+
+<p><code>preferredCharsets(availableCharsets)</code>:</p>
+
+<p>Returns an array of preferred charsets ordered by priority from a list of available charsets.</p>
+
+<p><code>preferredCharset(availableCharsets)</code>:</p>
+
+<p>Returns the top preferred charset from a list of available charsets.</p>
+
+<h1>Accept-Encoding Negotiation</h1>
+
+<pre><code>Negotiator = require('negotiator').Negotiator
+
+availableEncodings = ['identity', 'gzip']
+
+negotiator = new Negotiator(request)
+
+// Let's say Accept-Encoding header is 'gzip, compress;q=0.2, identity;q=0.5'
+
+negotiator.preferredEncodings()
+// -&gt; ['gzip', 'identity', 'compress']
+
+negotiator.preferredEncodings(availableEncodings)
+// -&gt; ['gzip', 'identity']
+
+negotiator.preferredEncoding(availableEncodings)
+// -&gt; 'gzip'
+</code></pre>
+
+<p>You can check a working example at <code>examples/encoding.js</code>.</p>
+
+<h2>Methods</h2>
+
+<p><code>preferredEncodings(availableEncodings)</code>:</p>
+
+<p>Returns an array of preferred encodings ordered by priority from a list of available encodings.</p>
+
+<p><code>preferredEncoding(availableEncodings)</code>:</p>
+
+<p>Returns the top preferred encoding from a list of available encodings.</p>
+
+<h1>License</h1>
+
+<p>MIT</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
