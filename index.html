@@ -30,11 +30,13 @@
 
       </header>
       <section>
-        <h1>Negotiator</h1>
+        <h1>
+<a name="negotiator" class="anchor" href="#negotiator"><span class="octicon octicon-link"></span></a>Negotiator</h1>
 
 <p>An HTTP content negotiator for node.js written in javascript.</p>
 
-<h1>Accept Negotiation</h1>
+<h1>
+<a name="accept-negotiation" class="anchor" href="#accept-negotiation"><span class="octicon octicon-link"></span></a>Accept Negotiation</h1>
 
 <pre><code>Negotiator = require('negotiator')
 
@@ -43,21 +45,22 @@ availableMediaTypes = ['text/html', 'text/plain', 'application/json']
 // The negotiator constructor receives a request object
 negotiator = new Negotiator(request)
 
-// Let's say Accept header is 'text/html, application/*;q=0.2, image/jpeg';q=0.8
+// Let's say Accept header is 'text/html, application/*;q=0.2, image/jpeg;q=0.8'
 
 negotiator.preferredMediaTypes()
-// -&gt; ['text/html', 'application/*', 'image/jpeg']
+// -&gt; ['text/html', 'image/jpeg', 'application/*']
 
 negotiator.preferredMediaTypes(availableMediaTypes)
-// -&gt; ['text/html', 'application.json']
+// -&gt; ['text/html', 'application/json']
 
-negotiator.preferredLanguage(availableMediaTypes)
+negotiator.preferredMediaType(availableMediaTypes)
 // -&gt; 'text/html'
 </code></pre>
 
 <p>You can check a working example at <code>examples/accept.js</code>.</p>
 
-<h2>Methods</h2>
+<h2>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h2>
 
 <p><code>preferredMediaTypes(availableMediaTypes)</code>:</p>
 
@@ -67,7 +70,8 @@ negotiator.preferredLanguage(availableMediaTypes)
 
 <p>Returns the top preferred media type from a list of available media types.</p>
 
-<h1>Accept-Language Negotiation</h1>
+<h1>
+<a name="accept-language-negotiation" class="anchor" href="#accept-language-negotiation"><span class="octicon octicon-link"></span></a>Accept-Language Negotiation</h1>
 
 <pre><code>Negotiator = require('negotiator')
 
@@ -89,7 +93,8 @@ language = negotiator.preferredLanguage(availableLanguages)
 
 <p>You can check a working example at <code>examples/language.js</code>.</p>
 
-<h2>Methods</h2>
+<h2>
+<a name="methods-1" class="anchor" href="#methods-1"><span class="octicon octicon-link"></span></a>Methods</h2>
 
 <p><code>preferredLanguages(availableLanguages)</code>:</p>
 
@@ -99,7 +104,8 @@ language = negotiator.preferredLanguage(availableLanguages)
 
 <p>Returns the top preferred language from a list of available languages.</p>
 
-<h1>Accept-Charset Negotiation</h1>
+<h1>
+<a name="accept-charset-negotiation" class="anchor" href="#accept-charset-negotiation"><span class="octicon octicon-link"></span></a>Accept-Charset Negotiation</h1>
 
 <pre><code>Negotiator = require('negotiator')
 
@@ -121,7 +127,8 @@ negotiator.preferredCharset(availableCharsets)
 
 <p>You can check a working example at <code>examples/charset.js</code>.</p>
 
-<h2>Methods</h2>
+<h2>
+<a name="methods-2" class="anchor" href="#methods-2"><span class="octicon octicon-link"></span></a>Methods</h2>
 
 <p><code>preferredCharsets(availableCharsets)</code>:</p>
 
@@ -131,7 +138,8 @@ negotiator.preferredCharset(availableCharsets)
 
 <p>Returns the top preferred charset from a list of available charsets.</p>
 
-<h1>Accept-Encoding Negotiation</h1>
+<h1>
+<a name="accept-encoding-negotiation" class="anchor" href="#accept-encoding-negotiation"><span class="octicon octicon-link"></span></a>Accept-Encoding Negotiation</h1>
 
 <pre><code>Negotiator = require('negotiator').Negotiator
 
@@ -153,7 +161,8 @@ negotiator.preferredEncoding(availableEncodings)
 
 <p>You can check a working example at <code>examples/encoding.js</code>.</p>
 
-<h2>Methods</h2>
+<h2>
+<a name="methods-3" class="anchor" href="#methods-3"><span class="octicon octicon-link"></span></a>Methods</h2>
 
 <p><code>preferredEncodings(availableEncodings)</code>:</p>
 
@@ -163,7 +172,8 @@ negotiator.preferredEncoding(availableEncodings)
 
 <p>Returns the top preferred encoding from a list of available encodings.</p>
 
-<h1>License</h1>
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>MIT</p>
       </section>
@@ -172,6 +182,16 @@ negotiator.preferredEncoding(availableEncodings)
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33578435-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
